@@ -1,0 +1,38 @@
+{% extends "user/index.html" %}
+{% block body %}
+
+    <form method="post" action="/patient_profile_post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered" style="width: 500px;" align="center">
+        <tr>
+            <td>Patient Name</td>
+            <td><input type="text" name="t1" class="form-control" required value="{{ data.user_name }}"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="t2" class="form-control" required value="{{ data.email }}"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="t3" pattern="[6789][0-9]{9}" maxlength="10" value="{{ data.phone }}" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td>Place</td>
+            <td><input type="text" name="t4" class="form-control" value="{{ data.place }}" required></td>
+        </tr>
+        <tr>
+            <td>Post</td>
+            <td><input type="text" name="t5" class="form-control" value="{{ data.post}}" required></td>
+        </tr>
+        <tr>
+            <td>Pin</td>
+            <td><input type="text" name="t6" pattern="[6][0-9]{5}" maxlength="6" value="{{ data.pin }}" class="form-control" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="UPDATE" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+    </form>
+{% endblock %}

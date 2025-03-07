@@ -1,0 +1,19 @@
+{% extends "user/index.html" %}
+{% block body %}
+<table class="table table-bordered">
+    <tr style="background: #3097a4; color: white">
+        <td>#</td>
+        <td>DISEASE</td>
+        <td>DESCRIPTION</td>
+        <td>PRECAUTIONS</td>
+    </tr>
+    {% for i in data %}
+    <tr >
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.disease }}</td>
+        <td>{{ i.description }}</td>
+        <td>{{ i.precautions }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
